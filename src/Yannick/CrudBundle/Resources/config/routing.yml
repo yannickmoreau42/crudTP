@@ -1,0 +1,26 @@
+yannick_crud_homepage:
+    path:     /
+    defaults: { _controller: YannickCrudBundle:Users:index }
+yannick_crud_add:
+    path:    /add
+    defaults: { _controller: YannickCrudBundle:Users:add }
+    
+yannick_crud_edit:
+    path:    /edit/{id}
+    defaults: { _controller: YannickCrudBundle:Users:edit }
+    requirements:
+        id: \d+
+
+yannick_crud_view:
+    path:    /user/{id}
+    defaults: { _controller: YannickCrudBundle:Users:view }
+    requirements:
+      id: \d+
+
+yannick_crud_delete:
+    path:    /delete/{id}
+    defaults: { _controller: YannickCrudBundle:Users:delete }
+    requirements:
+      id: \d+
+
+

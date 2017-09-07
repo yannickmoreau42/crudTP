@@ -1,0 +1,4 @@
+services:
+#    yannick_crud.example:
+#        class: Yannick\CrudBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

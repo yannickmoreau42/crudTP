@@ -1,0 +1,19 @@
+{% extends "YannickCrudBundle::layout.html.twig" %}
+
+{% block title %}
+  Modifier un utilisateur 
+{% endblock %}
+
+{% block body %}
+
+  <h2><span class="glyphicon glyphicon-user"> Editer un utilisateur</h2>
+
+  {{ include("YannickCrudBundle:Users:form.html.twig") }}
+   <p>
+    <a href="{{ path('yannick_crud_view', {'id': users.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à l'utilisateur
+    </a>
+  </p>
+
+{% endblock %}

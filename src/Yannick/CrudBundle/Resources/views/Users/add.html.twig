@@ -1,0 +1,14 @@
+{% extends "YannickCrudBundle::layout.html.twig" %}
+
+{% block body %}
+
+  <h2><span class="glyphicon glyphicon-user"> Ajouter un utilisateur</h2>
+
+  {{ include("YannickCrudBundle:Users:form.html.twig") }}
+  <p>
+    <a href="{{ path('yannick_crud_list') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la liste
+    </a>
+   </p>
+{% endblock %}

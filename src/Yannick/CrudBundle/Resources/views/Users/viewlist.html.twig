@@ -1,0 +1,40 @@
+{% extends "YannickCrudBundle::layout.html.twig" %}
+{% block title %}
+  Affichage d'un utilisateur - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+
+
+  <div class="well">
+    <p>
+    	
+    	{{users.username}}
+    	{{users.email}}
+      {%for dep in deps%}
+        {% if users.refdep.id == dep.id%}
+          {{dep.nom}}
+        {% endif %}
+      {% endfor %}
+
+    
+    	
+    </p>
+  </div>
+
+  <p>
+    <a href="{{ path('yannick_crud_list') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la liste
+    </a>
+    <a href="{{ path('yannick_crud_edit', {'id': users.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      Modifier l'utilisateur
+    </a>
+    <a href="{{ path('yannick_crud_delete', {'id': users.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      Supprimer l'utilisateur
+    </a>
+  </p>
+
+{% endblock %}
