@@ -22,5 +22,8 @@ yannick_crud_delete:
     defaults: { _controller: YannickCrudBundle:Users:delete }
     requirements:
       id: \d+
+yannick_crud_list:
+    path:     /list
+    defaults: { _controller: YannickCrudBundle:Users:list }
 
 

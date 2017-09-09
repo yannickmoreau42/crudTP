@@ -23,14 +23,7 @@ class UsersController extends Controller
 {
     public function indexAction()
     {
-            $em = $this->getDoctrine()->getManager();
-    $users = $em->getRepository('YannickCrudBundle:Users')->findAll();
-    $deps = $em->getRepository('YannickCrudBundle:Departements')->findAll();
-    return $this->render('YannickCrudBundle:Users:index.html.twig', array(
-          'users'=>$users,
-          'deps'=>$deps,
-          
-          ));
+        return $this->render('YannickCrudBundle:Users:index.html.twig');
 
     }
 
@@ -137,5 +130,16 @@ class UsersController extends Controller
       'form'   => $form->createView(),
         
         ));
+  }
+
+  public function listAction(){
+    $em = $this->getDoctrine()->getManager();
+    $users = $em->getRepository('YannickCrudBundle:Users')->findAll();
+    $deps = $em->getRepository('YannickCrudBundle:Departements')->findAll();
+    return $this->render('YannickCrudBundle:Users:list.html.twig', array(
+          'users'=>$users,
+          'deps'=>$deps,
+          
+          ));
   }
 }
