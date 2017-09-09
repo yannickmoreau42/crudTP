@@ -28,7 +28,7 @@
 
     <div class="row">
       <div id="menu" class="col-md-3">
-        <h3>Les annonces</h3>
+        <h3>Menu</h3>
         <ul class="nav nav-pills nav-stacked">
           <li><a href="{{ path('yannick_crud_homepage') }}">Accueil</a></li>
           <li><a href="{{ path('yannick_crud_list') }}">Liste des utilisateurs</a></li>
@@ -62,9 +62,10 @@
 $(document).ready(function() {
     $('#example').DataTable({
       "info":     false,
-      "paging": '10',
-      "oLanguage": {
-  "sSearch": '<span>Rechercher :</span> _INPUT_ ',
+      "language": {
+  "search": '<div class ="pull-left"><span >Rechercher :</span> _INPUT_</div> ',
+    "lengthMenu": 'Afficher _MENU_ lignes par page ',
+
 }
     });
 } );
