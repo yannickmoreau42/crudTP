@@ -5,13 +5,14 @@
   Supprimer un utilisateur - {{ parent() }}
 {% endblock %}
 
-{% block ocplatform_body %}
+{% block body %}
 
   <h2>Supprimer un utilisateur</h2>
-
+<div class="well">
   <p>
     Etes-vous certain de vouloir supprimer l'utilisateur "{{ users.username }}" ?
   </p>
+  </div>
 
   {# On met l'id de l'utilisateur dans la route de l'action du formulaire #}
   <form action="{{ path('yannick_crud_delete', {'id': users.id}) }}" method="post">
