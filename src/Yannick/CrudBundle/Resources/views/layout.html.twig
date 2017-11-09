@@ -62,9 +62,10 @@
 $(document).ready(function() {
     $('#example').DataTable({
       "info":     false,
+     "paging":   false,
+     "searching" : true,
       "language": {
-  "search": '<div class ="pull-left"><span >Rechercher :</span> _INPUT_</div> ',
-    "lengthMenu": 'Afficher _MENU_ lignes par page ',
+    "search": '<div class ="pull-right"><span  >Rechercher :</span> _INPUT_</div>',
 
 }
     });

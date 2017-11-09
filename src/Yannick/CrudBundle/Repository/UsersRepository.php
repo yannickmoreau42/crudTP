@@ -39,5 +39,8 @@ class UsersRepository extends \Doctrine\ORM\EntityRepository
  
         return $getResult?$preparedQuery->getResult():$preparedQuery; 
     } 
+
 }
+
+
 

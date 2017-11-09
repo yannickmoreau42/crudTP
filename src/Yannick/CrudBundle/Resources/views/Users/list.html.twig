@@ -5,14 +5,17 @@
 <body class="wmobile">
        
 
-    </a>  <h2><i class="glyphicon glyphicon-user"></i> Liste des utilisateurs</h2>
-            <div class="pull-right">
-      <a href="{{ path('yannick_crud_add')}}" class="btn btn-default">Ajouter un utilisateur
-      <i class="glyphicon glyphicon-plus"></i>
-      </a>
+  <h2><i class="glyphicon glyphicon-user"></i> Liste des utilisateurs</h2>
+      <div class="pull-right">
+        <a href="{{ path('yannick_crud_add')}}" class="btn btn-default">Ajouter un utilisateur
+            <i class="glyphicon glyphicon-plus"></i>
+        </a>
      
       </div>
-        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
+{# total items count #}
+
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
               <th>Nom d'utilisateur</th>
@@ -20,37 +23,29 @@
               <th>Département</th>
               <th>Editer</th>
               <th>Supprimer</th>
-             
             </tr>
           </thead>
-          <tfoot>
-            <tr>
-              <th>Nom d'utilisateur</th>
-              <th>Email</th>
-              <th>Département</th>
-              <th>Editer</th>
-              <th>Supprimer</th>
-            
-            </tr>
-          </tfoot>
-          <tbody>
-        {% for user in users %}
-            <tr>
-              <td>{{user.username}}</td>
-              <td>{{user.email}}</td>
-              {% for dep in deps if user.refdep.id == dep.id%}
-                  <td>{{dep.nom}}</td>
-              {% endfor %}
-              <td><a href="{{ path('yannick_crud_edit', {'id': user.id}) }}">
-          <span class="glyphicon glyphicon-pencil"></span></td>
-              <td><a href="{{ path('yannick_crud_delete', {'id': user.id}) }}">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a></td>
-              
-            </tr>
-        {% endfor %}
 
-          </tbody>
-        </table>
-        </body>
-        {% endblock %}
+{# table body #}
+{% for user in pagination %}
+  <tr {% if loop.index is odd %}class="color"{% endif %}>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      {% for dep in deps if user.refdep.id == dep.id%}
+          <td>{{dep.nom}}</td>
+      {% endfor %}
+       <td><a href="{{ path('yannick_crud_edit', {'id': user.id}) }}">
+            <span class="glyphicon glyphicon-pencil"></span></td>
+                <td><a href="{{ path('yannick_crud_delete', {'id': user.id}) }}">
+            <span class="glyphicon glyphicon-trash"></span>
+          </a>
+        </td>
+  </tr>
+{% endfor %}
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+
+{% endblock %}

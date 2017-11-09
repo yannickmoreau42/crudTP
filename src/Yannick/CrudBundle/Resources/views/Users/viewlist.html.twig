@@ -2,7 +2,6 @@
 {% block title %}
   Affichage d'un utilisateur - {{ parent() }}
 {% endblock %}
-
 {% block body %}
 
 
@@ -16,12 +15,9 @@
           {{dep.nom}}
         {% endif %}
       {% endfor %}
-
-    
     	
     </p>
   </div>
-
   <p>
     <a href="{{ path('yannick_crud_list') }}" class="btn btn-default">
       <i class="glyphicon glyphicon-chevron-left"></i>

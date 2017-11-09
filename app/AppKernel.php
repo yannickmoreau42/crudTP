@@ -18,7 +18,10 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Yannick\CrudBundle\YannickCrudBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

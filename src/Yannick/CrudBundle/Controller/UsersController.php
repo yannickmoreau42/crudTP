@@ -19,6 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+
 class UsersController extends Controller
 {
     public function indexAction()
@@ -26,6 +27,11 @@ class UsersController extends Controller
         return $this->render('YannickCrudBundle:Users:index.html.twig');
 
     }
+public function userlistAction(Request $request)
+{
+
+}
+
 
 
     public function editAction($id, Request $request){
@@ -132,13 +138,25 @@ class UsersController extends Controller
         ));
   }
 
-  public function listAction(){
+  public function listAction(Request $request){
     $em = $this->getDoctrine()->getManager();
     $users = $em->getRepository('YannickCrudBundle:Users')->findAll();
     $deps = $em->getRepository('YannickCrudBundle:Departements')->findAll();
+
+
+   
+  
+
+    $paginator  = $this->get('knp_paginator');
+    $pagination = $paginator->paginate(
+        $users, /* query NOT result */
+        $request->query->getInt('page', 1)/*page number*/,
+        30/*limit per page*/
+    );
     return $this->render('YannickCrudBundle:Users:list.html.twig', array(
           'users'=>$users,
           'deps'=>$deps,
+          'pagination' => $pagination
           
           ));
   }
